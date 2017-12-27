@@ -1,0 +1,2513 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>仿京东页面</title>
+		<style type="text/css">
+			/*矢量图开始*/
+		@font-face {
+		font-family: 'iconfont';
+		src: url('./font2/iconfont.eot');
+		src: url('./font2/iconfont.eot?#iefix') format('embedded-opentype'),
+		url('./font2/iconfont.woff') format('woff'),
+		url('./font2/iconfont.ttf') format('truetype'),
+		url('./font2/iconfont.svg#iconfont') format('svg');
+		}
+		.iconfont{
+		font-family:"iconfont" !important;
+		font-size:16px;font-style:normal;
+		-webkit-font-smoothing: antialiased;
+		-webkit-text-stroke-width: 0.2px;
+		-moz-osx-font-smoothing: grayscale;
+		}
+		.cw-icon{
+		overflow: hidden;
+		position: relative;
+		z-index: 1;
+		float: left;
+		border: 1px solid #e3e4e5;
+		}
+		/*矢量图结束*/
+		/*公共类开始*/
+		*{ margin:0; padding:0; }/*初始化*/
+		input,button {
+		font-family: Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5B8B\4F53",sans-serif;
+		}
+		button {
+		cursor: pointer;
+		}
+		ul, ol,li{ list-style:none; }/*去掉序号点*/
+		input { padding-top:0; padding-bottom:0; font-family: "SimSun","宋体";}/*去内边距*/
+		select, input { vertical-align:middle;}/*垂直居中*/
+		textarea { resize:none; } /*防止用户拖动*/
+		img {border:0; vertical-align:middle; }  /*去掉图片低测默认的3像素空白缝隙，或者用display：block也可以*/
+		table { border-collapse:collapse; }/*合并边框*/
+		.clearfix:before,.clearfix:after {  /*清除浮动*/
+		content:"";
+		display:table;
+		}
+		.clearfix:after{clear:both;}
+		.clearfix{
+		*zoom:1;/*IE/7/6*/
+		}
+		a {color:#666; text-decoration:none; }/*a标签字体颜色，去掉下横线*/
+		a:hover{color:#C81623;}/*a标签被移到时为红色*/
+		h1,h2,h3,h4,h5,h6 {text-decoration:none;font-weight:normal;font-size:100%;}  /*设置h标签的大小，设置跟父亲一样大的字体font-size:100%;*/
+		s,i,em{font-style:normal;text-decoration:none;}/*为普通样式*/
+		body {
+		font:12px/1.5 Microsoft YaHei,Heiti SC,tahoma,arial,Hiragino Sans GB,"\5b8b\4F53",sans-serif;
+		color:#666;
+		background:rgb(241,243,239);
+		-webkit-font-smoothing: antialiased;
+		}/*设置字体,"\5b8b\4f53"为宋体编码*/
+		ul, menu, dir {
+		overflow：hidden;
+		}/*溢出部分隐藏*/
+		.w{
+		margin: auto;
+		width: 1190px;
+		}/*中间内容部分1190px*/
+		.fl{
+		float: left;
+		}
+		.fr{
+		float: right;
+		}
+		.fr .cw-icon{
+		padding-right: 20px!important;
+		}
+		.fr .iconfont{
+		position: absolute;
+		right: 5px;
+		top: 10px;
+		width: 12px;
+		height: 12px;
+		line-height: 12px;
+		font-size: 1px;
+		}
+		.dorpdown{
+		position: relative;
+		z-index: 21;
+		}/*用于置于下层被覆盖*/
+		.ci-left, .ci-right, .dd-spacer {
+		display: none!important;
+		}
+		.dorpdown-layer {
+		display: none;
+		position: absolute;
+		border: 1px solid #ccc;
+		background-color: #fff;
+		-webkit-box-shadow: 1px 2px 1px rgba(0,0,0,.1);
+		-moz-box-shadow: 1px 2px 1px rgba(0,0,0,.1);
+		box-shadow: 1px 2px 1px rgba(0,0,0,.1);
+		}
+		/*广告*/
+		.grid_c1{
+			margin: 0 auto;
+			width: 1190px;
+		}
+		/*广告end*/
+		/*导航*/
+		#shortcut{
+		border-bottom: 1px solid #ddd;
+		background-color: #e3e4e5;
+		}
+		#shortcut .w {
+		height: 30px;
+		line-height: 30px;
+		color: #999;
+		}
+		#ttbar_mycity {
+		margin-left: 200px;
+		}
+		#ttbar-login {
+		margin-right: 8px;
+		z-index: 20;
+		}
+		#shortcut li {
+		float: left;
+		}
+		#shortcut .dt {
+		padding-left: 7px;
+		padding-right: 7px;
+		}
+		#ttbar_mycity .iconfont {
+		font-size: 14px;
+		color: #f10215;
+		}
+		#shortcut .dd {
+		line-height: 24px;
+		}
+		#shortcut .dorpdown-layer {
+		top: 30px;
+		}
+		#ttbar_mycity .dd {
+		left: 0;
+		width: 300px;
+		padding: 10px;
+		}
+		#ttbar_mycity .item {
+		float: left;
+		width: 60px;
+		padding: 2px 0;
+		}
+		#shortcut a {
+		color: #999;
+		}
+		#ttbar_mycity .item a {
+		float: left;
+		padding: 0 8px;
+		}
+		#ttbar_mycity .item a.selected {
+		background-color: #f10215;
+		color: #fff;
+		}
+		#ttbar-login .link-login {
+		font-family: verdana\,simsun;
+		}
+		#shortcut .style-red {
+		color: #f10215;
+		}
+		#shortcut li.spacer {
+		overflow: hidden;
+		margin: 11px 5px 0;
+		width: 1px;
+		height: 10px;
+		background-color: #ccc;
+		}
+		#shortcut .cw-icon {
+		height: 28px;
+		line-height: 28px;
+		}
+		#ttbar_myjd .dorpdown-layer {
+		left: 0;
+		width: 280px;
+		}
+		#ttbar_myjd .dd-spacer {
+		left: 0;
+		width: 82px;
+		}
+		#ttbar_myjd .myjdlist {
+		padding: 10px 0 10px 15px;
+		overflow: hidden;
+		}
+		#ttbar_myjd .myjdlist .fore1, #ttbar_myjd .myjdlist .fore2 {
+		float: left;
+		width: 126px;
+		}
+		#ttbar_myjd .myjdlist_2 {
+		border-top: 1px solid #f1f1f1;
+		}
+		#ttbar_serv .dd {
+		right: 0;
+		width: 174px;
+		padding: 10px 0;
+		}
+		#ttbar_serv .item-business, #ttbar_serv .item-client {
+		padding-left: 15px;
+		font-weight: 700;
+		color: #666;
+		}
+		#ttbar_serv .item {
+		display: inline-block;
+		width: 70px;
+		padding-left: 15px;
+		}
+		#ttbar_serv .item-business {
+		margin-top: 5px;
+		padding-top: 5px;
+		border-top: 1px dotted #eee;
+		}
+		#ttbar-navs .dd {
+		right: -84px;
+		width: 1188px;
+		padding: 15px 0;
+		}
+		.dorpdown:hover .cw-icon, .hover .cw-icon {
+		padding-bottom: 2px;
+		border-color: #ccc;
+		border-bottom: none;
+		background-color: #fff;
+		}
+		/*导航end*/
+		/*头部*/
+		#header .w {
+		position: relative;
+		z-index: 11;
+		height: 140px;
+		}
+		#logo {
+		z-index: 2;
+		left: 0;
+		top: -31px;
+		width: 190px;
+		height: 170px;
+		-webkit-box-shadow: 0 -12px 10px rgba(0,0,0,.2);
+		-moz-box-shadow: 0 -12px 10px rgba(0,0,0,.2);
+		box-shadow: 0 -12px 10px rgba(0,0,0,.2);
+		background-color: #fff;
+		border-bottom: 1px solid #ededed;
+		}
+		#logo, .logo_tit {
+		position: absolute;
+		}
+		#settleup {
+		position: absolute;
+		right: 99px;
+		top: 25px;
+		}
+		#hotwords {
+		overflow: hidden;
+		position: absolute;
+		left: 320px;
+		top: 65px;
+		width: 550px;
+		height: 20px;
+		line-height: 20px;
+		}
+		#navitems {
+		overflow: hidden;
+		position: absolute;
+		left: 200px;
+		bottom: 0;
+		width: 790px;
+		height: 40px;
+		padding-top: 20px;
+		}
+		#treasure {
+		position: absolute;
+		right: 0;
+		bottom: 10px;
+		width: 190px;
+		height: 40px;
+		}
+		.logo_tit {
+		width: 100%;
+		height: 100%;
+		}
+		.logo_tit_lk {
+		background-position: 0 0;
+		overflow: hidden;
+		display: block;
+		width: 190px;
+		height: 170px;
+		background-image: url(./JDimage/sprite.head.png);
+		text-indent: -999px;
+		}
+		.logo_subtit {
+		display: none;
+		}
+		.logo_extend {
+		display: none;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		}
+		.search-m {
+		position: relative;
+		z-index: 1;
+		height: 60px;
+		}
+		#shelper {
+		overflow: hidden;
+		position: absolute;
+		z-index: 1;
+		left: 270px;
+		top: 59px;
+		width: 398px;
+		border: 1px solid #ccc;
+		background-color: #fff;
+		-webkit-box-shadow: 1px 2px 1px rgba(0,0,0,.2);
+		-moz-box-shadow: 1px 2px 1px rgba(0,0,0,.2);
+		box-shadow: 1px 2px 1px rgba(0,0,0,.2);
+		}
+		.search-m .form {
+		position: absolute;
+		left: 320px;
+		top: 25px;
+		width: 550px;
+		height: 35px;
+		}
+		.search-m .button, .search-m .text {
+		position: absolute;
+		top: 0;
+		outline: none;
+		}
+		.search-m .text {
+		left: 0;
+		padding: 4px;
+		width: 490px;
+		height: 25px;
+		border: 1px solid transparent;
+		line-height: 25px;
+		font-size: 14px;
+		color: #989898;
+		}
+		.photo-search-btn {
+		position: absolute;
+		right: 65px;
+		top: 10px;
+		width: 19px;
+		height: 15px;
+		overflow: hidden;
+		}
+		.photo-search-btn .upload-bg {
+		display: block;
+		width: 19px;
+		height: 15px;
+		background: url(./JDimage/sprite-photo-search.png) no-repeat;
+		cursor: pointer;
+		}
+		.photo-search-btn .upload-trigger {
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 3;
+		width: 500px;
+		height: 500px;
+		cursor: pointer;
+		filter: alpha(opacity=0);
+		-moz-opacity: 0;
+		opacity: 0;
+		}
+		.search-m .button {
+		-moz-border-radius: 0;
+		border-radius: 0;
+		right: 0;
+		width: 50px;
+		height: 35px;
+		line-height: 35px;
+		border: none;
+		background-color: #f10215;
+		font-size: 20px;
+		font-weight: 700;
+		color: #fff;
+		}
+		#settleup .cw-icon {
+		width: 188px;
+		height: 33px;
+		background-color: #fff;
+		text-align: center;
+		line-height: 33px;
+		}
+		#settleup .ci-count {
+		position: absolute;
+		top: 5px;
+		left: 140px;
+		right: auto;
+		display: inline-block;
+		padding: 1px;
+		font-size: 12px;
+		line-height: 12px;
+		color: #fff;
+		background-color: #f10215;
+		-moz-border-radius: 7px;
+		border-radius: 7px;
+		min-width: 12px;
+		text-align: center;
+		}
+		#settleup .cw-icon .iconfont {
+		margin-right: 3px;
+		font-size: 16px;
+		color: #f10214;
+		}
+		#settleup .cw-icon a {
+		color: #f10214;
+		}
+		#settleup .dorpdown-layer {
+		top: 35px;
+		right: 0;
+		width: 308px;
+		}
+		.cart_empty {
+		height: 49px;
+		margin: auto;
+		padding: 10px 0;
+		text-align: center;
+		line-height: 49px;
+		overflow: hidden;
+		color: #999;
+		}
+		.cart_empty_img {
+		display: inline-block;
+		vertical-align: middle;
+		width: 56px;
+		height: 49px;
+		background-image: url(./JDimage/58004d6dN2927f0f7.png);
+		}
+		#header .style-red {
+		color: #f10215;
+		}
+		#hotwords a {
+		float: left;
+		margin-right: 10px;
+		white-space: nowrap;
+		color: #999;
+		}
+		#navitems .spacer, #navitems li, #navitems ul {
+		float: left;
+		}
+		#navitems li {
+		margin-left: 30px;
+		}
+		#navitems a {
+		position: relative;
+		display: block;
+		height: 40px;
+		line-height: 40px;
+		font-size: 14px;
+		color: #333;
+		}
+		#navitems .spacer {
+		overflow: hidden;
+		margin-top: 15px;
+		margin-left: 20px;
+		margin-right: -10px;
+		width: 1px;
+		height: 10px;
+		background-color: #ccc;
+		}
+		#navitems img {
+		position: absolute;
+		top: -5px;
+		margin-left: -22px;
+		width: 42px;
+		height: 15px;
+		}
+		/*头部end*/
+		/*大屏部分*/
+		.fs {
+		z-index: 9;
+		margin-bottom: 30px;
+		}
+		.fs, .fs_inner {
+		position: relative;
+		}
+		.fs_inner {
+		z-index: 1;
+		height: 480px;
+		background-color: #f0f3ef;
+		}
+		.fs_act {
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		}
+		.fs_col1 {
+		width: 190px;
+		}
+		.fs_col1, .fs_col2 {
+		float: left;
+		height: 480px;
+		margin-right: 10px;
+		}
+		.fs_col2 {
+		width: 590px;
+		}
+		.fs_col3 {
+		float: left;
+		}
+		.fs_col3, .fs_col4 {
+		width: 190px;
+		height: 480px;
+		}
+		.fs_col4 {
+		float: right;
+		}
+		.cate {
+		position: relative;
+		z-index: 2;
+		}
+		.cate_menu {
+		overflow: hidden;
+		padding: 15px 0;
+		height: 450px;
+		background-color: #fefefe;
+		color: #636363;
+		}
+		.cate_menu_item {
+		overflow: hidden;
+		padding-left: 20px;
+		height: 28px;
+		line-height: 28px;
+		font-size: 0;
+		}
+		.cate_menu_lk {
+		font-size: 14px;
+		color: #626262;
+		}
+		.cate_menu_line {
+		padding: 0 4px;
+		font-size: 12px;
+		}
+		.focus {
+		position: relative;
+		float: left;
+		width: 590px;
+		margin-top: 10px;
+		}
+		.focus, .focus_main {
+		height: 470px;
+		}
+		.focus_item, .focus_item_lk, .focus_list {
+		overflow: hidden;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		}
+		.slider_indicators {
+		position: absolute;
+		left: 50%;
+		font-size: 0;
+		text-align: center;
+		}
+		.focus .slider_indicators {
+		z-index: 1;
+		margin-left: 0!important;
+		left: 46px;
+		bottom: 20px;
+		}
+		.focus_control_item {
+		position: absolute;
+		z-index: 1;
+		top: 50%;
+		margin-top: -20px;
+		width: 24px;
+		height: 40px;
+		background-color: #aeb5ad;
+		background-color: rgba(0,0,0,.2);
+		line-height: 40px;
+		color: #fff;
+		color: hsla(0,0%,100%,.4);
+		text-align: center;
+		-webkit-transition: all .1s linear;
+		-o-transition: all linear .1s;
+		-moz-transition: all linear .1s;
+		transition: all .1s linear;
+		opacity: 0;
+		}
+		.focus_control_prev {
+		left: 0;
+		}
+		.focus_control_item i {
+		font-size: 20px;
+		}
+		.focus_control_next {
+		right: 0;
+		}
+		.slider_indicators_btn {
+		position: relative;
+		display: inline-block;
+		width: 16px;
+		height: 16px;
+		margin-right: 1px;
+		-moz-border-radius: 50%;
+		border-radius: 50%;
+		}
+		.focus .slider_indicators_btn {
+		width: 18px;
+		height: 18px;
+		}
+		.slider_indicators_btn_active {
+		background: #fdd9dd;
+		}
+		.focus .slider_indicators_btn_active {
+		background: hsla(0,0%,100%,.2);
+		}
+		.focus_item {
+		background-color: #fff;
+		}
+		.focus_item_img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		}
+		.rec {
+		float: left;
+		width: 190px;
+		}
+		.rec_item {
+		width: 190px;
+		height: 150px;
+		margin-top: 10px;
+		}
+		.rec_lk {
+		display: block;
+		width: 190px;
+		height: 150px;
+		background-color: #fff;
+		}
+		.rec_img {
+		display: block;
+		width: 190px;
+		height: 150px;
+		}
+		.user {
+		height: 160px;
+		background: #fff;
+		margin-top: 10px;
+		text-align: center;
+		}
+		.user_inner {
+		position: relative;
+		padding-top: 70px;
+		height: 50px;
+		}
+		.user_avatar {
+		position: absolute;
+		left: 50%;
+		top: -10px;
+		margin-left: -34px;
+		width: 65px;
+		height: 65px;
+		}
+		.user_avatar img {
+		display: block;
+		width: 65px;
+		height: 65px;
+		-moz-border-radius: 50%;
+		border-radius: 50%;
+		}
+		.user_avatar_lk {
+		position: absolute;
+		left: -17px;
+		top: -16px;
+		width: 106px;
+		height: 108px;
+		background-image: url(./JDimage/sprite.user.png);
+		background-position: 0 0;
+		}
+		.user_show {
+		padding: 0 10px;
+		}
+		.user_show p {
+		overflow: hidden;
+		line-height: 20px;
+		width: 100%;
+		white-space: nowrap;
+		-o-text-overflow: ellipsis;
+		text-overflow: ellipsis;
+		color: #888;
+		}
+		.user_profit {
+		height: 25px;
+		font-size: 0;
+		}
+		.user_profit_lk {
+		display: inline-block;
+		margin: 0 5px;
+		width: 70px;
+		height: 25px;
+		line-height: 25px;
+		font-size: 12px;
+		text-align: center;
+		color: #e43f3b;
+		-moz-border-radius: 13px;
+		border-radius: 13px;
+		-webkit-box-shadow: 4px 6px 12px 2px rgba(45,45,45,.15);
+		-moz-box-shadow: 4px 6px 12px 2px rgba(45,45,45,.15);
+		box-shadow: 4px 6px 12px 2px rgba(45,45,45,.15);
+		-webkit-transition: all .3s ease;
+		-o-transition: all .3s ease;
+		-moz-transition: all .3s ease;
+		transition: all .3s ease;
+		}
+		.user_profit_lk_plus {
+		background: #363634;
+		color: #e5d790;
+		}
+		.news {
+		overflow: hidden;
+		height: 150px;
+		background: #fff;
+		}
+		.news .mod_tab_head {
+		padding: 17px 0 0;
+		position: relative;
+		line-height: 14px;
+		font-size: 0;
+		}
+		.news .mod_tab_head_item {
+		font-size: 12px;
+		color: #333;
+		padding-right: 15px;
+		padding-left: 15px;
+		border-right: 1px solid #dfe0e1;
+		}
+		.news .news_last {
+		border-right: none;
+		}
+		.news_tab_active {
+		position: absolute;
+		bottom: -1px;
+		left: 0;
+		margin-left: 13px;
+		width: 27px;
+		height: 2px;
+		background: #db192b;
+		-webkit-transform: translateX(0);
+		-moz-transform: translateX(0);
+		-ms-transform: translateX(0);
+		transform: translateX(0);
+		-webkit-transition: -webkit-transform .3s ease;
+		transition: -webkit-transform .3s ease;
+		-o-transition: transform .3s ease;
+		-moz-transition: transform .3s ease,-moz-transform .3s ease;
+		transition: transform .3s ease;
+		transition: transform .3s ease,-webkit-transform .3s ease,-moz-transform .3s ease;
+		}
+		.news_more {
+		position: absolute;
+		right: 12px;
+		top: 18px;
+		font-size: 12px;
+		}
+		.news .mod_tab_content {
+		position: relative;
+		padding-top: 12px;
+		margin: 0 15px;
+		height: 88px;
+		}
+		.news .mod_tab_content_item {
+		height: 100%;
+		overflow: hidden;
+		display: none;
+		}
+		.news .mod_tab_content_item_on {
+		display: block;
+		}
+		.news_item {
+		line-height: 22px;
+		max-width: 160px;
+		width: 160px;
+		white-space: nowrap;
+		-o-text-overflow: ellipsis;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		color: #999;
+		}
+		.service {
+		overflow: hidden;
+		position: relative;
+		height: 160px;
+		-webkit-transition: all .2s ease;
+		-o-transition: all .2s ease;
+		-moz-transition: all .2s ease;
+		transition: all .2s ease;
+		}
+		.service_entry {
+		overflow: hidden;
+		padding: 10px 15px 15px;
+		background: #fff;
+		}
+		.service_list {
+		height: 135px;
+		}
+		.service_item {
+		position: relative;
+		float: left;
+		width: 40px;
+		height: 45px;
+		background: #fff;
+		text-align: center;
+		}
+		.service_ico, .service_lk, .service_txt {
+		display: block;
+		}
+		/*大屏end*/
+		/*秒杀*/
+		.sk {
+		height: 275px;
+		margin-bottom: 30px;
+		}
+		.sk_inner {
+		background: #fff;
+		overflow: hidden;
+		}
+		.sk_hd {
+		position: relative;
+		float: left;
+		width: 190px;
+		height: 275px;
+		background: #e83632;
+		color: #fff;
+		}
+		.sk_hd_lk {
+		display: block;
+		width: 100%;
+		height: 100%;
+		color: #fff;
+		}
+		.sk_tit {
+		position: absolute;
+		/* font-family: 'fzzxh'; */
+		left: 0;
+		width: 100%;
+		text-align: center;
+		top: 42px;
+		/* font-size: 36px; */
+		font-size: 34px;
+		}
+		.sk_subtit {
+		position: absolute;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		top: 90px;
+		/* color: #edac8e; */
+		color: #f19999;
+		color: rgba(255, 255, 255, 0.5);
+		/* font-size: 24px; */
+		font-size: 20px;
+		}
+		.sk_ico {
+		position: absolute;
+		left: 86px;
+		top: 126px;
+		display: block;
+		width: 20px;
+		height: 33px;
+		background-image: url(./JDimage/sprite.seckill.png);
+		background-position: -35px -25px;
+		}
+		.sk_desc {
+		position: absolute;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		top: 170px;
+		font-size: 16px;
+		}
+		.sk_bd {
+		float: left;
+		}
+		.sk_list {
+		position: relative;
+		float: left;
+		width: 799px;
+		height: 275px;
+		}
+		.sk_list_inner {
+		position: relative;
+		height: 275px;
+		}
+		.sk .slider_list {
+		overflow: hidden;
+		border-right: solid 1px #f0f0f0;
+		}
+		.slider_item {
+		height: 100%;
+		min-height: 1px;
+		}
+		.sk_item {
+		position: relative;
+		float: left;
+		width: 200px;
+		height: 275px;
+		}
+		.sk_item_lk {
+		position: relative;
+		display: block;
+		width: 190px;
+		height: 275px;
+		text-align: center;
+		margin: auto;
+		}
+		.sk_item_img {
+		position: absolute;
+		width: 140px;
+		height: 140px;
+		left: 50%;
+		margin-left: -70px;
+		top: 40px;
+		-webkit-transition: opacity ease .2s;
+		-o-transition: opacity ease .2s;
+		-moz-transition: opacity ease .2s;
+		transition: opacity ease .2s;
+		}
+		.sk_item_name {
+		position: absolute;
+		top: 190px;
+		left: 0;
+		width: 160px;
+		padding: 0 15px;
+		line-height: 30px;
+		-o-text-overflow: ellipsis;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+		}
+		.sk_item_price {
+		position: absolute;
+		left: 15px;
+		top: 230px;
+		width: 160px;
+		height: 20px;
+		padding: 1px;
+		background: #e6382f;
+		line-height: 20px;
+		}
+		.mod_price {
+		font-size: 14px;
+		color: #f10214;
+		}
+		.sk_item_price_new {
+		float: left;
+		width: 80px;
+		height: 20px;
+		text-align: center;
+		color: #fff;
+		font-size: 14px;
+		font-weight: bold;
+		}
+		.sk_item_price_origin {
+		float: left;
+		width: 80px;
+		height: 20px;
+		background: #fff;
+		text-align: center;
+		color: #b7bcb8;
+		font-size: 12px;
+		text-decoration: line-through;
+		}
+		.sk_chn {
+		position: relative;
+		float: left;
+		width: 180px;
+		height: 260px;
+		padding: 8px 10px 7px;
+		}
+		.sk_chn_inner {
+		width: 100%;
+		height: 100%;
+		}
+		.sk_chn_lk {
+		display: block;
+		width: 180px;
+		}
+		.sk_chn_img {
+		width: 180px;
+		height: 260px;
+		}
+		/*秒杀end*/
+		/*底部*/
+		.mod_service {
+		padding: 30px 0;
+		border-bottom: 1px solid #DEDEDE;
+		}
+		.mod_service_list {
+		overflow: hidden;
+		height: 42px;
+		}
+		.mod_service_item {
+		float: left;
+		width: 297px;
+		}
+		.mod_service_unit {
+		position: relative;
+		margin: 0 auto;
+		padding-left: 45px;
+		width: 180px;
+		}
+		.mod_service_tit {
+		overflow: hidden;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 36px;
+		height: 42px;
+		background-image: url(./JDimage/多快好省.png);
+		text-indent: -999px;
+		}
+		.mod_service_duo {
+		background-position: 0 0;
+		}
+		.mod_service_txt {
+		overflow: hidden;
+		width: 100%;
+		height: 42px;
+		line-height: 42px;
+		font-size: 18px;
+		font-weight: 700;
+		-o-text-overflow: ellipsis;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		color: #444;
+		}
+		.mod_service_kuai {
+		background-position: 0 -43px;
+		}
+		.mod_service_hao {
+		background-position: 0 -86px;
+		}
+		.mod_service_sheng {
+		background-position: 0 -129px;
+		}
+		.mod_help {
+		padding: 20px 0;
+		}
+		.mod_help_list {
+		overflow: hidden;
+		height: 160px;
+		}
+		.mod_help_nav {
+		float: left;
+		width: 198px;
+		line-height: 22px;
+		}
+		.mod_help_nav_tit {
+		margin-bottom: 5px;
+		font-size: 14px;
+		}
+		.mod_help_cover {
+		float: right;
+		width: 200px;
+		height: 150px;
+		background: url(./JDimage/ico_footer.png) no-repeat 0 0;
+		}
+		.mod_help_cover_tit {
+		margin-bottom: 15px;
+		font-size: 14px;
+		text-align: center;
+		}
+		.mod_help_cover_con {
+		padding: 0 10px;
+		}
+		.mod_help_cover_more {
+		text-align: right;
+		}
+		.mod_copyright_inner {
+		padding: 15px 0;
+		border-top: 1px solid #E1E1E1;
+		text-align: center;
+		}
+		.mod_copyright_split {
+		margin: 0 10px;
+		color: #CCC;
+		}
+		.mod_copyright_info {
+		padding: 10px 0;
+		line-height: 22px;
+		color: #999;
+		}
+		.mod_copyright_info a {
+		color: #999;
+		}
+		/*底部结束*/
+		#lb_container {
+		position: relative;
+		height: 470px;
+		overflow: hidden;
+		}
+		
+		#lb_list {
+		position: absolute;
+		z-index: 1;
+		width: 6000px;
+		height: 400px;
+		}
+		
+		#lb_list img {
+		float: left;
+		width: 600px;
+		height: 470px;
+		}
+		
+		#lb_buttons {
+		position: absolute;
+		left: 250px;
+		bottom: 20px;
+		z-index: 2;
+		height: 10px;
+		width: 140px;
+		}
+		
+		#lb_buttons span {
+		float: left;
+		margin-right: 5px;
+		width: 10px;
+		height: 10px;
+		border: 1px solid #fff;
+		border-radius: 50%;
+		background: #333;
+		cursor: pointer;
+		}
+		
+		#lb_buttons .lb_on {
+		background: orangered;
+		}
+		
+		.lb_arrow {
+		position: absolute;
+		top: 180px;
+		z-index: 2;
+		display: none;
+		width: 40px;
+		height: 40px;
+		font-size: 36px;
+		font-weight: bold;
+		line-height: 39px;
+		text-align: center;
+		color: #fff;
+		background-color: RGBA(0, 0, 0, .3);
+		cursor: pointer;
+		}
+		
+		.lb_arrow:hover {
+		background-color: RGBA(0, 0, 0, .7);
+		}
+		
+		#lb_container:hover .lb_arrow {
+		display: block;
+		}
+		
+		#prev {
+		left: 20px;
+		}
+		
+		#next {
+		right: 20px;
+		}
+		</style>
+		<script type="text/javascript">
+		/* 知识点：        */
+		/*       this用法 */
+		/*       DOM事件 */
+		/*       定时器 */
+		window.onload = function() {
+		var lb_container = document.getElementById('lb_container');
+		var lb_list = document.getElementById('lb_list');
+		var lb_buttons = document.getElementById('lb_buttons').getElementsByTagName('span');
+		var prev = document.getElementById('prev');
+		var next = document.getElementById('next');
+		var index = 1;
+		var timer;
+		var close = document.getElementById('J_event_close');
+		var event = document.getElementById('J_event');
+		var mycity =document.getElementById("ttbar_mycity");
+		var myjd = document.getElementById("ttbar_myjd");
+		var serv = document.getElementById("ttbar_serv");
+		mycity.onmouseover =function(){
+			mycity.children[1].style.display="block";
+		}
+		mycity.onmouseout=function(){
+			mycity.children[1].style.display="none";
+		}
+		myjd.onmouseover =function(){
+			myjd.children[1].style.display="block";
+		}
+		myjd.onmouseout=function(){
+			myjd.children[1].style.display="none";
+		}
+		serv.onmouseover =function(){
+			serv.children[1].style.display="block";
+		}
+		serv.onmouseout=function(){
+			serv.children[1].style.display="none";
+		}
+		close.onclick =function(){
+			event.style.display="none";
+		}
+		function animate(offset) {
+		//获取的是style.left，是相对左边获取距离，所以第一张图后style.left都为负值，
+		//且style.left获取的是字符串，需要用parseInt()取整转化为数字。
+		var newLeft = parseInt(lb_list.style.left) + offset;
+		lb_list.style.left = newLeft + 'px';
+		//无限滚动判断
+		if (newLeft > -600) {
+		lb_list.style.left = -4800 + 'px';
+		}
+		if (newLeft < -4800) {
+		lb_list.style.left = -600 + 'px';
+		}
+		}
+		function play() {
+		//重复执行的定时器
+		timer = setInterval(function() {
+		next.onclick();
+		}, 2000)
+		}
+		function stop() {
+		clearInterval(timer);
+		}
+		function lb_buttonsShow() {
+		//将之前的小圆点的样式清除
+		for (var i = 0; i < lb_buttons.length; i++) {
+		if (lb_buttons[i].className == "lb_on") {
+		lb_buttons[i].className = "";
+		}
+		}
+		//数组从0开始，故index需要-1
+		lb_buttons[index - 1].className = "lb_on";
+		}
+		prev.onclick = function() {
+		index -= 1;
+		if (index < 1) {
+		index = 8
+		}
+		lb_buttonsShow();
+		animate(600);
+		};
+		next.onclick = function() {
+		//由于上边定时器的作用，index会一直递增下去，我们只有5个小圆点，所以需要做出判断
+		index += 1;
+		if (index > 8) {
+		index = 1
+		}
+		animate(-600);
+		lb_buttonsShow();
+		};
+		for (var i = 0; i < lb_buttons.length; i++) {
+		(function(i) {
+		lb_buttons[i].onclick = function() {
+		/*   这里获得鼠标移动到小圆点的位置，用this把index绑定到对象lb_buttons[i]上，去谷歌this的用法  */
+		/*   由于这里的index是自定义属性，需要用到getAttribute()这个DOM2级方法，去获取自定义index的属性*/
+		var clickIndex = parseInt(this.getAttribute('index'));
+		var offset = 600 * (index - clickIndex); //这个index是当前图片停留时的index
+		animate(offset);
+		index = clickIndex; //存放鼠标点击后的位置，用于小圆点的正常显示
+		lb_buttonsShow();
+		}
+		})(i)
+		}
+		lb_container.onmouseover = stop;
+		lb_container.onmouseout = play;
+		play();
+		}
+		
+		</script>
+	</head>
+	<body>
+		<div class="mod_container" id="app">
+			<!--广告-->
+			<div id="J_event" style="position: relative; z-index: 30; background-color:#12141a;">
+				<div class="grid_c1" style="position: relative;">
+					<a id="J_event_lk" href="#" target="_blank" style="display: block; width: 100%; height: 80px; background: url(./JDimage/广告横幅-大.jpg) no-repeat 50% 0;"></a>
+					<i id="J_event_close" class="iconfont" style="cursor:pointer; position: absolute; right: 5px; top: 5px; font-weight: bold; font-size: 14px; color: #FFF; background: rgb(45,45,45); opacity: .3; filter: alpha(opacity=30); width: 20px; text-align: center; line-height: 20px;">&#xe60d;</i>
+				</div>
+			</div>
+			<!--广告end-->
+			<!--导航-->
+			<div id="shortcut">
+				<div class="w">
+					<ul class="fl">
+						<li class="dorpdown" id="ttbar_mycity">
+							<div class="dt cw-icon ui-areamini-text-wrap" style="">
+								<i class="iconfont">&#xe839;</i>
+								<i class="ci-right"><s>◇</s></i>
+								<i class="ci-left"></i>
+								<span class="ui-areamini-text" data-id="1" title="北京">北京</span>
+							</div>
+							<div class="dd dorpdown-layer">
+								<div class="dd-spacer"></div>
+								<div class="ui-areamini-content-wrap" style="left: auto;">
+									<div class="ui-areamini-content">
+										<div class="ui-areamini-content-list">
+											<div class="item">
+												<a data-id="1" href="javascript:void(0)" class="selected">北京</a>
+											</div>
+											<div class="item">
+												<a data-id="2" href="javascript:void(0)">上海</a>
+											</div>
+											<div class="item">
+												<a data-id="3" href="javascript:void(0)">天津</a>
+											</div>
+											<div class="item">
+												<a data-id="4" href="javascript:void(0)">重庆</a>
+											</div>
+											<div class="item">
+												<a data-id="5" href="javascript:void(0)">河北</a>
+											</div>
+											<div class="item">
+												<a data-id="6" href="javascript:void(0)">山西</a>
+											</div>
+											<div class="item">
+												<a data-id="7" href="javascript:void(0)">河南</a>
+											</div>
+											<div class="item">
+												<a data-id="8" href="javascript:void(0)">辽宁</a>
+											</div>
+											<div class="item">
+												<a data-id="9" href="javascript:void(0)">吉林</a>
+											</div>
+											<div class="item">
+												<a data-id="10" href="javascript:void(0)">黑龙江</a>
+											</div>
+											<div class="item">
+												<a data-id="11" href="javascript:void(0)">内蒙古</a>
+											</div>
+											<div class="item">
+												<a data-id="12" href="javascript:void(0)">江苏</a>
+											</div>
+											<div class="item">
+												<a data-id="13" href="javascript:void(0)">山东</a>
+											</div>
+											<div class="item">
+												<a data-id="14" href="javascript:void(0)">安徽</a>
+											</div>
+											<div class="item">
+												<a data-id="15" href="javascript:void(0)">浙江</a>
+											</div>
+											<div class="item">
+												<a data-id="16" href="javascript:void(0)">福建</a>
+											</div>
+											<div class="item">
+												<a data-id="17" href="javascript:void(0)">湖北</a>
+											</div>
+											<div class="item">
+												<a data-id="18" href="javascript:void(0)">湖南</a>
+											</div>
+											<div class="item">
+												<a data-id="19" href="javascript:void(0)">广东</a>
+											</div>
+											<div class="item">
+												<a data-id="20" href="javascript:void(0)">广西</a>
+											</div>
+											<div class="item">
+												<a data-id="21" href="javascript:void(0)">江西</a>
+											</div>
+											<div class="item">
+												<a data-id="22" href="javascript:void(0)">四川</a>
+											</div>
+											<div class="item">
+												<a data-id="23" href="javascript:void(0)">海南</a>
+											</div>
+											<div class="item">
+												<a data-id="24" href="javascript:void(0)">贵州</a>
+											</div>
+											<div class="item">
+												<a data-id="25" href="javascript:void(0)">云南</a>
+											</div>
+											<div class="item">
+												<a data-id="26" href="javascript:void(0)">西藏</a>
+											</div>
+											<div class="item">
+												<a data-id="27" href="javascript:void(0)">陕西</a>
+											</div>
+											<div class="item">
+												<a data-id="28" href="javascript:void(0)">甘肃</a>
+											</div>
+											<div class="item">
+												<a data-id="29" href="javascript:void(0)">青海</a>
+											</div>
+											<div class="item">
+												<a data-id="30" href="javascript:void(0)">宁夏</a>
+											</div>
+											<div class="item">
+												<a data-id="31" href="javascript:void(0)">新疆</a>
+											</div>
+											<div class="item">
+												<a data-id="52993" href="javascript:void(0)">港澳</a>
+											</div>
+											<div class="item">
+												<a data-id="32" href="javascript:void(0)">台湾</a>
+											</div>
+											<div class="item">
+												<a data-id="84" href="javascript:void(0)">钓鱼岛</a>
+											</div>
+											<div class="item">
+												<a data-id="53283" href="javascript:void(0)">海外</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+					
+					<ul class="fr">
+						<li class="fore1 dorpdown" id="ttbar-login">
+							<a href="javascript:login();" class="link-login">你好，请登录</a>
+							&nbsp;&nbsp;
+							<a href="javascript:regist();" class="link-regist style-red">免费注册</a>
+						</li>
+						<li class="spacer"></li>
+						<li class="fore2">
+							<div class="dt">
+								<a target="_blank" href="https://order.jd.com/center/list.action">我的订单</a>
+							</div>
+						</li>
+						<li class="spacer"></li>
+						<li class="fore3 dorpdown" id="ttbar_myjd" data-load="1">
+							<div class="dt cw-icon">
+								<a target="_blank" href="https://home.jd.com/">我的京东</a>
+								<i class="iconfont">&#xe60c;</i>
+								<i class="ci-right"><s>◇</s></i>
+							</div>
+							<div class="dd dorpdown-layer">
+								<div class="dd-spacer">
+								</div>
+								<div class="myjdlist">
+									<div class="fore1">
+										<div class="item">
+											<a href="//order.jd.com/center/list.action" target="_blank">待处理订单
+												<span id="num-unfinishedorder"></span>
+											</a>
+										</div>
+										<div class="item">
+											<a href="//myjd.jd.com/afs/indexNew.action?entry=1" target="_blank">返修退换货
+											</a>
+										</div>
+										<div class="item">
+											<a href="//t.jd.com/product/followProductList.action?isReduce=true" target="_blank">降价商品
+												<span id="num-reduction"></span>
+											</a>
+										</div>
+									</div>
+									<div class="fore2">
+										<div class="item">
+											<a href="//joycenter.jd.com/msgCenter/queryHistoryMessage.action" target="_blank">消息
+												<span id="num-tip"></span>
+											</a>
+										</div>
+										<div class="item">
+											<a href="http://question.jd.com/myjd/getMyjdAnswerList.action" target="_blank">我的问答
+												<span id="num-consultation"></span>
+											</a>
+										</div>
+										<div class="item">
+											<a href="//t.jd.com/home/follow" target="_blank">我的关注
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="myjdlist myjdlist_2">
+									<div class="fore1">
+										<div class="item">
+											<a href="//bean.jd.com/myJingBean/list" target="_blank">我的京豆
+											</a>
+										</div>
+										<div class="item baitiao">
+											<a href="//baitiao.jd.com" target="_blank">我的白条
+											</a>
+										</div>
+									</div>
+									<div class="fore2">
+										<div class="item">
+											<a href="//quan.jd.com/user_quan.action" target="_blank">"我的优惠券"</a>
+											<span id="num-ticket"></span>
+										</div>
+										<div class="item">
+											<a href="//trade.jr.jd.com/centre/browse.action" target="_blank">我的理财</a>
+										</div>
+									</div>
+								</div>
+								<div class="viewlist" style="display: none;">
+									<div class="smt">
+										<h4>我的足迹</h4>
+										<a href="//my.jd.com/history/list.html" target="_blank">更多&nbsp;>
+										</a>
+									</div>
+									<div class="smc">
+										
+									</div>
+								</div>
+							</div>
+						</li>
+						<li class="spacer"></li>
+						<li class="fore4">
+							<div class="dt">
+								<a target="_blank" href="https://vip.jd.com/">京东会员</a>
+							</div>
+						</li>
+						<li class="spacer"></li>
+						<li class="fore5">
+							<div class="dt">
+								<a target="_blank" href="https://b.jd.com/">企业采购</a>
+							</div>
+						</li>
+						<li class="spacer"></li>
+						<li class="fore8 dorpdown" id="ttbar_serv" data-load="1">
+							<div class="dt cw-icon">客户服务
+								<i class="iconfont">&#xe60c;</i>
+								<i class="ci-right"><s>◇</s></i>
+							</div>
+							<div class="dd dorpdown-layer">
+								<div class="dd-spacer">
+									
+								</div>
+								<div class="item-client">客户
+								</div>
+								<div class="item">
+									<a href="https://help.jd.com/index.html" target="_blank" true="">帮助中心</a>
+								</div>
+								<div class="item">
+									<a href="https://myjd.jd.com/afs/indexNew.action?entry=2" target="_blank" true="">售后服务</a>
+								</div>
+								<div class="item">
+									<a href="https://chat.jd.com/jdchat/custom.action" target="_blank" true="">在线客服</a>
+								</div>
+								<div class="item">
+									<a href="https://myjd-crm.jd.com/opinion/orderList.action" target="_blank" true="">意见建议</a>
+								</div>
+								<div class="item">
+									<a href="https://myjd-crm.jd.com/appoint/telebooking.action" target="_blank" true="">电话客服</a>
+								</div>
+								<div class="item">
+									<a href="https://www.jd.com/contact/service.html" target="_blank" true="">客服邮箱</a>
+								</div>
+								<div class="item">
+									<a href="https://jrhelp.jd.com/" target="_blank" true="">金融咨询</a>
+								</div>
+								<div class="item">
+									<a href="https://chat.jd.com/jd/chat?entry=jd_web_joybuy" target="_blank" true="">售全球客服</a>
+								</div>
+								<div class="item-business">商户
+								</div>
+								<div class="item">
+									<a href="https://vc.jd.com/cooperation.html" target="_blank" true="">合作招商</a>
+								</div>
+								<div class="item">
+									<a href="https://xue.jd.com/" target="_blank" true="">学习中心</a>
+								</div>
+								<div class="item">
+									<a href="https://shop.jd.com/" target="_blank" true="">商家后台</a>
+								</div>
+								<div class="item">
+									<a href="https://jm.jd.com/index/index.html" target="_blank" true="">京麦工作台</a>
+								</div>
+								<div class="item">
+									<a href="https://helpcenter.jd.com/venderportal/index.html" target="_blank" true="">商家帮助</a>
+								</div>
+								<div class="item">
+									<a href="https://rule.jd.com/rule/index.action" target="_blank" true="">规则平台</a>
+								</div>
+							</div>
+						</li>
+						<li class="spacer"></li>
+						<li class="fore9 dorpdown" id="ttbar-navs" data-load="1">
+							<div class="dt cw-icon">网站导航
+								<i class="iconfont">&#xe60c;</i>
+								<i class="ci-right"><s>◇</s></i>
+							</div>
+							<div class="dd dorpdown-layer">
+								<div class="dd-spacer"></div>
+								<div class="dd-inner">
+									<span class="loading">
+										
+									</span>
+								</div>
+							</div>
+						</li>
+						<li class="spacer"></li>
+						<li class="fore10 mobile" id="J_mobile">
+							<div class="dt">
+								<a href="https://3.cn/hDVCpX" target="_blank">手机京东</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--导航end-->
+			<!--头部搜索等-->
+			<div id="header">
+				<div class="w">
+					<div id="logo" class="logo">
+						<h1 class="logo_tit">
+						<a href="https://www.jd.com/" class="logo_tit_lk">京东</a>
+						</h1>
+						<h2 class="logo_subtit">京东,多快好省
+						</h2>
+						<div class="logo_extend" >
+							
+						</div>
+					</div>
+					
+					<div id="search">
+						<div class="search-m">
+							<div class="form">
+								<input  type="text" autocomplete="off" id="key" accesskey="s" class="text" style="color: rgb(51,51,51);">
+								<span class="photo-search-btn">
+									<form id="search-img-upload"  method="post" action="https://search.jd.com/image?op=upload" enctype="multipart/form-data" target="search_upload">
+										<span class="upload-bg"></span>
+										<input type="file" name="file" class="upload-trigger" placeholder="请输入商品名称">
+									</form>
+								</span>
+								<button  class="button">
+								<i class="iconfont">&#xe60e;</i>
+								</button>
+							</div>
+						</div>
+					</div>
+					
+					<div id="settleup" class="dorpdown">
+						<div class="cw-icon">
+							<i class="ci-left"></i>
+							<i class="ci-right">&gt;</i>
+							<i class="ci-count" id="shopping-amount">0</i>
+							<i class="iconfont">&#xe505;</i>
+							<a target="_blank" href="https://cart.jd.com/cart.action">我的购物车</a>
+						</div>
+						<div class="dorpdown-layer">
+							<div id="cart_pop">
+								<div class="cart_empty">
+									<i class="cart_empty_img"></i>
+									"购物车中还没有商品，赶紧选购吧！"
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="hotwords">
+						<a href="https://sale.jd.com/act/QnG5StjcrfKMeIg.html?spm=1.1.0" target="_blank" class="style-red" >低至5折</a>
+						<a href="https://sale.jd.com/act/K6NXzcavxPYMAI0.html?cpdad=1DLSUE&amp;spm=1.1.1" target="_blank" >直降7000</a>
+						<a href="https://sale.jd.com/act/yGZr5MQcDqJS.html?spm=1.1.2" target="_blank">低至3折</a>
+						<a href="https://sale.jd.com/act/14hG3gu2DPivSs0k.html?spm=1.1.3" target="_blank">不止5折</a>
+						<a href="https://sale.jd.com/act/1dCqk7TBj5porf8.html?spm=1.1.4" target="_blank">圣诞礼盒</a>
+						<a href="https://search.jd.com/Search?keyword=%E7%B4%AB%E7%A0%82%E8%8A%B1%E7%9B%86&amp;enc=utf-8&amp;spm=1.1.5" target="_blank">紫砂花盆</a>
+						<a href="https://search.jd.com/Search?keyword=%E7%A9%BA%E6%B0%94%E5%87%80%E5%8C%96%E5%99%A8&amp;enc=utf-8&amp;spm=1.1.6" target="_blank">空气净化器</a>
+						<a href="https://sale.jd.com/act/KXz1abNFIcvtCBpq.html?spm=1.1.7" target="_blank">圣诞礼物</a>
+						<a href="https://search.jd.com/Search?keyword=%E7%94%B5%E5%AD%90%E7%A7%A4&amp;enc=utf-8&amp;spm=1.1.8" target="_blank">电子秤</a>
+					</div>
+					
+					<div id="navitems">
+						<ul id="navitems-group1">
+							<li class="fore1"><a target="_blank" href="https://miaosha.jd.com/">秒杀</a></li>
+							<li class="fore2"><a target="_blank" href="https://a.jd.com/">优惠券</a></li>
+							<li class="fore3"><a target="_blank" href="https://plus.jd.com/index?flow_system=appicon&amp;flow_entrance=appicon11&amp;flow_channel=pc">PLUS会员<img src="./JDimage/59f7e7d3Nd927d17e.png"></a></li>
+							<li class="fore4"><a target="_blank" href="https://red.jd.com/">闪购</a></li>
+						</ul>
+						<div class="spacer"></div>
+						<ul id="navitems-group2">
+							<li class="fore1"><a target="_blank" href="https://paimai.jd.com/">拍卖</a></li>
+							<li class="fore2"><a target="_blank" href="https://channel.jd.com/fashion.html">京东服饰</a></li>
+							<li class="fore3"><a target="_blank" href="https://chaoshi.jd.com/">京东超市</a></li>
+							<li class="fore4"><a target="_blank" href="https://fresh.jd.com/">生鲜</a></li>
+						</ul>
+						<div class="spacer"></div>
+						<ul id="navitems-group3">
+							<li class="fore1"><a target="_blank" href="https://www.jd.hk/">全球购</a></li>
+							<li class="fore2"><a target="_blank" href="https://jr.jd.com/">京东金融</a></li>
+						</ul>
+					</div>
+					
+					<div id="treasure">
+						<a id="J_promo_lk" class="promo_lk" style="display: block; width: 190px; height: 40px; background: url(./JDimage/5a390f45Nfbbef2e3.gif) center no-repeat;" href="https://c-nfa.jd.com/adclick?keyStr=6PQwtwh0f06syGHwQVvRO7pzzm8GVdWoLPSzhvezmOWokbN2gOukAyBrOgN1bOH22fLbtBJAPcOYIbgh996ZuXXka4AGc5RrVyX/2EeX1QVT87J6pnJXnU+KnASImqkd4fLWlvRBkxoM4QrINBB7Lfbjkgd+U1xZydITzGq9QYHQL9qjOY9sCdk6IyuxBNQYPg/5lcwJ9ODRALR4zzW6KndBYMCVFxlbZRUKij7Z92358nvVR6ukal9j8UOUAB7XX2eOVm6BWJgL+STwEf7TGxhRUJO1SzbN9ghEGFXB7f90eAcCcxt4/aYpXclWi6Ay4kZYtET9oANOMTk0wDstKw==&amp;cv=2.0&amp;url=//sale.jd.com/act/BSL7tVxmleh6zg2R.html" target="_blank" >
+							
+						</a>
+					</div>
+				</div>
+			</div>
+			<!--头部end-->
+			<!--左侧分类、大幅图片、右侧类目-->
+			<div class="fs">
+				<div class="grid_c1 fs_inner">
+					<div class="fs_col1">
+						<div id="J_cate" class="cate J_cate">
+							<ul class="JS_navCtn cate_menu">
+								<li class="cate_menu_item" data-index="1">
+									<a target="_blank" class="cate_menu_lk" href="https://jiadian.jd.com/">家用电器</a>
+								</li>
+								<li class="cate_menu_item" data-index="2">
+									<a target="_blank" class="cate_menu_lk" href="https://shouji.jd.com/">手机</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://wt.jd.com/">运营商</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://shuma.jd.com/">数码</a>
+								</li>
+								<li class="cate_menu_item" data-index="3">
+									<a target="_blank" class="cate_menu_lk" href="https://diannao.jd.com/">电脑</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://bg.jd.com/">办公</a>
+								</li>
+								<li class="cate_menu_item" data-index="4">
+									<a target="_blank" class="cate_menu_lk" href="https://channel.jd.com/home.html">家居</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://channel.jd.com/furniture.html">家具</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://channel.jd.com/decoration.html">家装</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://channel.jd.com/kitchenware.html">厨具</a>
+								</li>
+								<li class="cate_menu_item" data-index="5">
+									<a target="_blank" class="cate_menu_lk" href="https://channel.jd.com/1315-1342.html">男装</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://channel.jd.com/1315-1343.html">女装</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://channel.jd.com/children.html">童装</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://channel.jd.com/1315-1345.html">内衣</a>
+								</li>
+								<li class="cate_menu_item" data-index="6">
+									<a target="_blank" class="cate_menu_lk" href="https://channel.jd.com/beauty.html">美妆个护</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://channel.jd.com/pet.html">宠物</a>
+								</li>
+								<li class="cate_menu_item" data-index="7">
+									<a target="_blank" class="cate_menu_lk" href="https://channel.jd.com/womensshoes.html">女鞋</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://channel.jd.com/bag.html">箱包</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://channel.jd.com/watch.html">钟表</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://channel.jd.com/jewellery.html">珠宝</a>
+								</li>
+								<li class="cate_menu_item" data-index="8">
+									<a target="_blank" class="cate_menu_lk" href="https://channel.jd.com/mensshoes.html">男鞋</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://channel.jd.com/yundongcheng.html">运动</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://channel.jd.com/outdoor.html">户外</a>
+								</li>
+								<li class="cate_menu_item" data-index="9">
+									<a target="_blank" class="cate_menu_lk" href="https://car.jd.com/">汽车</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://che.jd.com/">汽车用品</a>
+								</li>
+								<li class="cate_menu_item" data-index="10">
+									<a target="_blank" class="cate_menu_lk" href="https://baby.jd.com/">母婴</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://toy.jd.com/">玩具乐器</a>
+								</li>
+								<li class="cate_menu_item" data-index="11">
+									<a target="_blank" class="cate_menu_lk" href="https://channel.jd.com/food.html">食品</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://jiu.jd.com/">酒类</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://fresh.jd.com/">生鲜</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://china.jd.com/">特产</a>
+								</li>
+								<li class="cate_menu_item" data-index="12">
+									<a target="_blank" class="cate_menu_lk" href="https://channel.jd.com/1672-2599.html">礼品鲜花</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://nong.jd.com/">农资绿植</a>
+								</li>
+								<li class="cate_menu_item" data-index="13">
+									<a target="_blank" class="cate_menu_lk" href="https://health.jd.com/">医药保健</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://channel.jd.com/9192-9196.html">计生情趣</a>
+								</li>
+								<li class="cate_menu_item" data-index="14">
+									<a target="_blank" class="cate_menu_lk" href="https://book.jd.com/">图书</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://mvd.jd.com/">音像</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://e.jd.com/ebook.html">电子书</a>
+								</li>
+								<li class="cate_menu_item" data-index="15">
+									<a target="_blank" class="cate_menu_lk" href="https://jipiao.jd.com/">机票</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://hotel.jd.com/">酒店</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://trip.jd.com/">旅游</a>
+									<span class="cate_menu_line">/</span>
+									<a target="_blank" class="cate_menu_lk" href="https://ish.jd.com/">生活</a>
+								</li>
+								<li class="cate_menu_item" data-index="16">
+									<a target="_blank" class="cate_menu_lk" href="https://licai.jd.com/">理财</a>
+									<span class="cate_menu_line">/</span>             <a target="_blank" class="cate_menu_lk" href="https://z.jd.com/">众筹</a>
+									<span class="cate_menu_line">/</span>             <a target="_blank" class="cate_menu_lk" href="https://baitiao.jd.com/">白条</a>
+									<span class="cate_menu_line">/</span>             <a target="_blank" class="cate_menu_lk" href="https://bao.jd.com/">保险</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!--
+					<div class="fs_col2">
+									<div id="J_focus" class="J_focus focus">
+													<div class="J_focus_main focus_main">
+																	<ul class="focus_list J_focus_list">
+																					<li class="J_focus_item focus_item focus_item_active" style="opacity: 1; z-index: 1; position: absolute;">
+																									<a href="//c-nfa.jd.com/adclick?keyStr=6PQwtwh0f06syGHwQVvRO4Hl3DCf4adHMyWVFctBdNo2iRYhcW7cF7vYcC81E8FrNnzzQay5libreghlkCNqf2jy/keUJOe3rWcUhKmnovWFrZR4kkXxuaeBMB37/lIhxDAsgCu+qgXFEMoZckExJVpjFHBYgRlFO/KlDTvlZhINZ4xFFrvJXsKh8ej6zxlxsGroKA5qNiMo09kyg1Gmdmy7mfTALhyRzHz3jKGtjuVjPx12H8Zs18i4MCIniBgq3hf+r5nxTnmbkq27IajfSd3H56w96K6Ll3Z7v/rXJcwQYJlK/bcrMsQnuIhwQtT0eHeiDI5ICYG5scHINnLuSA==&amp;cv=2.0&amp;url=//sale.jd.com/act/BSL7tVxmleh6zg2R.html" class="focus_item_lk J_focus_item_lk" target="_blank">
+																													<img alt="" src="./JDimage/5a3b2716Nf4b13f96.jpg" class="J_focus_item_img focus_item_img">
+																									</a>
+																					</li>
+																					<li class="J_focus_item focus_item" style="opacity: 0; z-index: 0; position: absolute;">
+																									<a href="//c-nfa.jd.com/adclick?keyStr=6PQwtwh0f06syGHwQVvRO4Hl3DCf4adHMyWVFctBdNriFLuBhTR5L3MD1O7Jy8SDElQxC+nVjllZzpsa6TMXQuh3i8NIA7sCtGazKM54OHb4iHonI9Ar8GVzUz6uQkZjxDAsgCu+qgXFEMoZckExJSw3LCAXZ+2MsTsr2NavVYV1ImDt7l5e7hS3cOZfXO53sGroKA5qNiMo09kyg1Gmdmy7mfTALhyRzHz3jKGtjuVjPx12H8Zs18i4MCIniBgq3hf+r5nxTnmbkq27IajfSd3H56w96K6Ll3Z7v/rXJcwQYJlK/bcrMsQnuIhwQtT0eHeiDI5ICYG5scHINnLuSA==&amp;cv=2.0&amp;url=//sale.jd.com/act/7X6lvKEGojusQSnz.html" class="focus_item_lk J_focus_item_lk" target="_blank" data-log="%7B%7D">
+																													<img alt="" src="./JDimage/5a3b6355N6e5a7c26.jpg!q90!cc_590x470.webp" class="J_focus_item_img focus_item_img">
+																									</a>
+																					</li>
+																					<li class="J_focus_item focus_item" style="opacity: 0; z-index: 0; position: absolute;">
+																									<a href="//c-nfa.jd.com/adclick?keyStr=6PQwtwh0f06syGHwQVvRO4Hl3DCf4adHMyWVFctBdNrigA4SkSaTmUgtUxj4YD8BoAZnmLv5oZ3rJIpCiR2E+oAkbU1FuysxKdE85nyeeyIb6mVocGfHT49KrrvGNPEdxDAsgCu+qgXFEMoZckExJXcJ01YAjp62oA7i/YRfGZydcnYOhBeK11SCRHRCngusv/7SSe9q7ZBCXWwxjFHP/r6uO37CY0Gpq2F6VJodSxa+LcM/29HoFWRR+IS3JwzGX9Bp73GHZ79P1hYK54ixq3JUyYon4u6OguV+SYB+YpNilRuhHxyLJHkfid7fVu5mhiN6+Mc28apMMzd+icNrBA==&amp;cv=2.0&amp;url=//sale.jd.com/act/L1Y2V6ERZePab4.html" class="focus_item_lk J_focus_item_lk" target="_blank">
+																													<img alt="" src="./JDimage/5a3dfd7dN934b6896.jpg!q90!cc_590x470.webp" class="J_focus_item_img focus_item_img">
+																									</a>
+																					</li>
+																					<li class="J_focus_item focus_item" style="opacity: 0; z-index: 0; position: absolute;">
+																									<a href="//sale.jd.com/act/dIugKArGRVzyF.html" class="focus_item_lk J_focus_item_lk J_log" clstag="h|keycount|head|focus|04" target="_blank" undefined="" data-log="%7B%22text%22%3A%22%E6%9B%BC%E7%A7%80%E9%9B%B7%E6%95%A6%22%2C%22url%22%3A%22%2F%2Fsale.jd.com%2Fact%2FdIugKArGRVzyF.html%22%2C%22desc%22%3A%22%E6%9B%BC%E7%A7%80%E9%9B%B7%E6%95%A6%22%2C%22mcinfo%22%3A%2200755652-01884379-9400042604-M%230-2-1--58%231-tb-%23300-845763%23pc-home%22%2C%22biclk%22%3A%221%23d593f13ae85e0aa3839df1bbad31fb17b2ecf828-101%23845763%22%7D">
+																													<img alt="曼秀雷敦" src="./JDimage/5a3b8e44Nd0c0f150.jpg!q90!cc_590x470.webp" class="J_focus_item_img focus_item_img">'
+																									</a>
+																					</li>
+																					<li class="J_focus_item focus_item" style="opacity: 0; z-index: 0; position: absolute;">
+																									<a href="//c-nfa.jd.com/adclick?keyStr=6PQwtwh0f06syGHwQVvRO4Hl3DCf4adHMyWVFctBdNo/OXFwzt2QayvtaXYUok3CoAZnmLv5oZ3rJIpCiR2E+hNMDuh/tIhA3LfeTZBSBiM9fqfHc2NQznDHO9q8cyhPxDAsgCu+qgXFEMoZckExJXcJ01YAjp62oA7i/YRfGZydcnYOhBeK11SCRHRCngusv/7SSe9q7ZBCXWwxjFHP/r6uO37CY0Gpq2F6VJodSxa+LcM/29HoFWRR+IS3JwzGX9Bp73GHZ79P1hYK54ixq3JUyYon4u6OguV+SYB+YpNilRuhHxyLJHkfid7fVu5mhiN6+Mc28apMMzd+icNrBA==&amp;cv=2.0&amp;url=//sale.jd.com/act/L1Y2V6ERZePab4.html" class="focus_item_lk J_focus_item_lk" target="_blank" data-log="%7B%7D">
+																													<img alt="" src="./JDimage/5a3dfc3cN6b28d780.jpg!q90!cc_590x470.webp" class="J_focus_item_img focus_item_img">
+																									</a>
+																					</li>
+																					<li class="J_focus_item focus_item" style="opacity: 0; z-index: 0; position: absolute;">
+																									<a href="//sale.jd.com/act/kmdO8ah57uswxKT2.html" class="focus_item_lk J_focus_item_lk J_log" clstag="h|keycount|head|focus|06" target="_blank" undefined="" data-log="%7B%22text%22%3A%2212.22-12.25-%E6%9E%9C%E8%94%AC%22%2C%22url%22%3A%22%2F%2Fsale.jd.com%2Fact%2FkmdO8ah57uswxKT2.html%22%2C%22desc%22%3A%2212.22-12.25-%E6%9E%9C%E8%94%AC%22%2C%22mcinfo%22%3A%2200755652-01884379-9400042637-M%230-2-1--58%231-tb-%23300-845763%23pc-home%22%2C%22biclk%22%3A%221%23d593f13ae85e0aa3839df1bbad31fb17b2ecf828-101%23845763%22%7D">
+																													<img alt="12.22-12.25-果蔬" src="./JDimage/5a323c51N4d7baf60.jpg!q90!cc_590x470.webp" class="J_focus_item_img focus_item_img">'
+																									</a>
+																					</li>
+																					<li class="J_focus_item focus_item" style="opacity: 0; z-index: 0; position: absolute;">
+																									<a href="//sale.jd.com/act/np0GkzJfiTIF.html" class="focus_item_lk J_focus_item_lk J_log" clstag="h|keycount|head|focus|07" target="_blank" undefined="" data-log="%7B%22text%22%3A%2212.25-%E8%82%89%E7%A6%BD%22%2C%22url%22%3A%22%2F%2Fsale.jd.com%2Fact%2Fnp0GkzJfiTIF.html%22%2C%22desc%22%3A%22%E7%94%9F%E9%B2%9C-%E8%82%89%E7%A6%BD%22%2C%22mcinfo%22%3A%2200755652-01884379-9400042603-M%230-2-1--58%231-tb-%23300-845763%23pc-home%22%2C%22biclk%22%3A%221%23d593f13ae85e0aa3839df1bbad31fb17b2ecf828-101%23845763%22%7D">
+																													<img alt="12.25-肉禽" src="./JDimage/5a3b825cNf090de0a.jpg!q90!cc_590x470.webp" class="J_focus_item_img focus_item_img">'
+																									</a>
+																					</li>
+																					<li class="J_focus_item focus_item" style="opacity: 0; z-index: 0; position: absolute;">
+																									<a href="//sale.jd.com/act/DNnmBUyvJ27MX5z8.html" class="focus_item_lk J_focus_item_lk J_log" clstag="h|keycount|head|focus|08" target="_blank" undefined="" data-log="%7B%22text%22%3A%2212.25-%E6%B5%B7%E4%BA%A7%22%2C%22url%22%3A%22%2F%2Fsale.jd.com%2Fact%2FDNnmBUyvJ27MX5z8.html%22%2C%22desc%22%3A%22%E7%94%9F%E9%B2%9C-%E6%B5%B7%E4%BA%A7%22%2C%22mcinfo%22%3A%2200755652-01884379-9400042631-M%230-2-1--58%231-tb-%23300-845763%23pc-home%22%2C%22biclk%22%3A%221%23d593f13ae85e0aa3839df1bbad31fb17b2ecf828-101%23845763%22%7D">
+																													<img alt="12.25-海产" src="./JDimage/5a37827bNf9ac9151.jpg!q90!cc_590x470.webp" class="J_focus_item_img focus_item_img">'
+																									</a>
+																					</li>
+																	</ul>
+																	<div class="J_slider_indicator slider_indicators lb_buttons" style="margin-left: -76px;">
+																					<span index="1" class="lb_on"></span>
+																					<span index="2"></span>
+																					<span index="3"></span>
+																					<span index="4"></span>
+																					<span index="5"></span>
+																					<span index="6"></span>
+																					<span index="7"></span>
+																					<span index="8"></span>
+																	</div>
+																	<a href="javascript:;" id="prev" class="J_focus_control_prev focus_control_item focus_control_prev lb_arrow">&lt;
+																	</a>
+																	<a href="javascript:;" id="next" class="J_focus_control_next focus_control_item focus_control_next lb_arrow">&gt;
+																	</a>
+													</div>
+									</div>
+					</div>
+					-->
+					<div class="fs_col2">
+						<div id="J_focus" class="J_focus focus">
+							<div class="J_focus_main focus_main">
+								<div id="lb_container">
+									<div id="lb_list" style="left: -600px;">
+										<img src="./JDimage/5a3b2716Nf4b13f96.jpg" alt="1" />
+										<img src="./JDimage/5a3b2716Nf4b13f96.jpg" alt="1" />
+										<img src="./JDimage/5a3b6355N6e5a7c26.jpg!q90!cc_590x470.webp" alt="2" />
+										<img src="./JDimage/5a3dfd7dN934b6896.jpg!q90!cc_590x470.webp" alt="3" />
+										<img src="./JDimage/5a3b8e44Nd0c0f150.jpg!q90!cc_590x470.webp" alt="4" />
+										<img src="./JDimage/5a3dfc3cN6b28d780.jpg!q90!cc_590x470.webp" alt="5" />
+										<img src="./JDimage/5a323c51N4d7baf60.jpg!q90!cc_590x470.webp" alt="6" />
+										<img src="./JDimage/5a3b825cNf090de0a.jpg!q90!cc_590x470.webp" alt="7" />
+										<img src="./JDimage/5a37827bNf9ac9151.jpg!q90!cc_590x470.webp" alt="8" />
+										<img src="./JDimage/5a37827bNf9ac9151.jpg!q90!cc_590x470.webp" alt="8" />
+									</div>
+									<div id="lb_buttons">
+										<span index="1" class="lb_on"></span>
+										<span index="2"></span>
+										<span index="3"></span>
+										<span index="4"></span>
+										<span index="5"></span>
+										<span index="6"></span>
+										<span index="7"></span>
+										<span index="8"></span>
+									</div>
+									<a href="javascript:;" id="prev" class="lb_arrow">&lt;</a>
+									<a href="javascript:;" id="next" class="lb_arrow">&gt;</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="fs_col3">
+						<div id="J_rec" class="J_rec rec">
+							<div class="rec_item" data-clk="undefined" data-sku="undefined">
+								<a class="rec_lk" href="https://gehu.jd.com/" target="_blank" data-log="%7B%22text%22%3A%22%E4%B8%AA%E6%8A%A4%E5%81%A5%E5%BA%B7%22%2C%22url%22%3A%22%2F%2Fgehu.jd.com%2F%22%2C%22desc%22%3A%22%22%2C%22mcinfo%22%3A%2200743907-01877211-9700042613-M%230-2-1--59%231-tb-%23102-833682%23pc-home%22%2C%22biclk%22%3A%221%23597109a93456665411fc20b75910506480fb4ba4-101%23833682%22%7D">
+									<img class="J_rec_img rec_img" src="./JDimage/5a3b0d29Ne7894b5d.jpg!q90!cc_190x150">
+								</a>
+							</div>
+							<div class="rec_item" data-clk="undefined" data-sku="undefined">
+								<a class="rec_lk" href="https://beauty.jd.com/" target="_blank" clstag="h|keycount|head|recom|02" data-log="%7B%22text%22%3A%22%E7%BE%8E%E5%A6%86%E9%A6%86%22%2C%22url%22%3A%22%2F%2Fbeauty.jd.com%2F%22%2C%22desc%22%3A%22%22%2C%22mcinfo%22%3A%2200743907-01877211-9700041787-M%230-2-1--59%231-tb-%23102-833682%23pc-home%22%2C%22biclk%22%3A%221%23597109a93456665411fc20b75910506480fb4ba4-101%23833682%22%7D">
+									<img class="J_rec_img rec_img" src="./JDimage/5a39c5e5N3c6f44a0.jpg!q90!cc_190x150">
+								</a>
+							</div>
+							<div class="rec_item" data-clk="undefined" data-sku="undefined">
+								<a class="rec_lk" href="https://c-nfa.jd.com/adclick?keyStr=6PQwtwh0f06syGHwQVvRO4Hl3DCf4adHMyWVFctBdNolFcC91vRAFXBVaok/SDZ3H33TeG98SL15hvpPq7Pr9aSqemoJIpYJl/CVVUAhJ3Okbn5trxF7QLG642N+9on3xDAsgCu+qgXFEMoZckExJU/2A20ckSnwm3nWaI9XANIHwT2bxhbsJapveKRBO/KGPg/5lcwJ9ODRALR4zzW6KndBYMCVFxlbZRUKij7Z92358nvVR6ukal9j8UOUAB7XX2eOVm6BWJgL+STwEf7TGxhRUJO1SzbN9ghEGFXB7f90eAcCcxt4/aYpXclWi6Ay4kZYtET9oANOMTk0wDstKw==&amp;cv=2.0&amp;url=//sale.jd.com/act/qcpbEZh7YMfOJB2.html" target="_blank" clstag="h|keycount|head|recom|03" data-log="%7B%7D">
+									<img class="J_rec_img rec_img" src="./JDimage/5a3b2564N360e56e2.jpg!q90!cc_190x150">
+								</a>
+							</div>
+						</div>
+					</div>
+					
+					<div id="J_fs_col4" class="fs_col4">
+						<div id="J_user" class="J_user user">
+							
+							<div class="user_inner user_level0 user_plusNaN" "="">
+								<div class="J_user_avatar user_avatar">
+									<img class="J_user_avatar_img" src="./京东(JD.COM)-正品低价、品质保障、配送及时、轻松购物！_files/no_login.jpg">
+									<a class="user_avatar_lk" href="https://home.jd.com/" target="_blank" clstag="h|keycount|head|login|01"></a>
+								</div>
+								
+								<div class="user_show">
+									
+									<p class="user_tip">Hi~欢迎来到京东！</p>
+									
+									<p>
+										<a href="javascript:login();" class="user_login">登录</a>
+										<a href="javascript:regist();" class="user_reg">注册</a>
+									</p>
+								</div>
+								
+							</div>
+							<div class="user_profit">
+								
+								<a class="user_profit_lk" href="https://xinren.jd.com/?channel=99" target="_blank" clstag="h|keycount|head|login|02">新人福利</a>
+								<a class="user_profit_lk user_profit_lk_plus" href="https://plus.jd.com/index?flow_system=appicon&amp;flow_entrance=appicon3&amp;flow_channel=pc" target="_blank" clstag="h|keycount|head|login|03">PLUS会员</a>
+								
+							</div>
+						</div>
+						<div id="J_news" class="news J_news">
+							<div class="mod_tab news_tab J_news_tab">
+								<div class="mod_tab_head J_tab_head clearfix">
+									<a href="javascript:;" class="mod_tab_head_item news_first mod_tab_head_item_on" clstag="h|keycount|head|news|01">促销
+									</a>
+									<a href="javascript:;" class="mod_tab_head_item news_last" clstag="h|keycount|head|news|02">公告
+									</a>
+									<div class="news_tab_active J_news_tab_active" style="transform: translateX(0px);">
+										
+									</div>
+									<a href="https://www.jd.com/moreSubject.aspx" target="_blank" class="news_more" clstag="h|keycount|head|news|03">更多</a>
+								</div>
+								<div class="mod_tab_content J_tab_content">
+									<div class="mod_tab_content_item mod_tab_content_item_on" clstag="h|keycount|head|news|01" style="display: block;">
+										<ul class="news_list">
+											<li class="news_item"><a href="https://sale.jd.com/act/V46UmyijehgIt.html" target="_blank" class="news_link">居家圣诞京喜好物3件7折</a></li>
+											<li class="news_item"><a href="https://sale.jd.com/act/y183WMl0ZHObq2.html" target="_blank" class="news_link">圣诞鲜花礼品好物1元秒</a></li>
+											<li class="news_item"><a href="https://sale.jd.com/act/jBYAPkftnu7Obc5.html" target="_blank" class="news_link">圣诞好礼，满59返千元礼包</a></li>
+											<li class="news_item"><a href="https://sale.jd.com/act/L1Y2V6ERZePab4.html" target="_blank" class="news_link">荣耀9青春版新品预约</a></li>
+										</ul>
+									</div>
+									<div class="mod_tab_content_item" clstag="h|keycount|head|news|02" style="display: none;">
+										<ul class="news_list">
+											<li class="news_item"><a href="https://www.jd.com/news.aspx?id=36286" target="_blank" class="news_link">大家电订单超期自动取消公告</a></li>
+											<li class="news_item"><a href="https://www.jd.com/news.aspx?id=36287" target="_blank" class="news_link">西宁本地仓开仓公告</a></li>
+											<li class="news_item"><a href="https://www.jd.com/news.aspx?id=36083" target="_blank" class="news_link">关于召回普利司通（天津）轮胎有限公司2个规格乘用车轮胎的公告</a></li>
+											<li class="news_item"><a href="https://www.jd.com/news.aspx?id=35887" target="_blank" class="news_link">京东物流推出配送员统一外呼电话"95056”</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="J_service" class="service">
+							<div class="service_entry">
+								<ul class="J_tab_head service_list">
+									<li class="service_item service_frame mod_tab_head_item">
+										<a href="https://chongzhi.jd.com/" class="service_lk" target="_blank">
+											<span class="service_txt">话费</span>
+										</a>
+									</li>
+									<li class="service_item service_frame mod_tab_head_item service_frame_on">
+										<a href="https://jipiao.jd.com/" class="service_lk" target="_blank">
+											<span class="service_txt">机票</span>
+										</a>
+									</li>
+									<li class="service_item service_frame mod_tab_head_item">
+										<a href="https://hotel.jd.com/" class="service_lk" target="_blank">
+											<span class="service_txt">酒店</span>
+										</a>
+									</li>
+									<li class="service_item service_frame mod_tab_head_item">
+										<a href="https://game.jd.com/" class="service_lk" target="_blank" >
+											<span class="service_txt">游戏</span>
+										</a>
+									</li>
+									<li class="service_item ">
+										<a href="https://b.jd.com/" class="service_lk" target="_blank">
+											<span class="service_txt">企业</span>
+										</a>
+									</li>
+									<li class="service_item ">
+										<a href="https://jiayouka.jd.com/" class="service_lk" target="_blank">
+											<span class="service_corner"></span>
+											<span class="service_txt">汽油卡</span>
+										</a>
+									</li>
+									<li class="service_item ">
+										<a href="https://movie.jd.com/index.html" class="service_lk" target="_blank" >
+											<span class="service_txt">电影</span>
+										</a>
+									</li>
+									<li class="service_item ">
+										<a href="https://train.jd.com/" class="service_lk" target="_blank" >
+											<span class="service_corner"></span>
+											<span class="service_txt">火车</span>
+										</a>
+									</li>
+									<li class="service_item ">
+										<a href="https://z.jd.com/sceneIndex.html?from=jrscyn_20162" class="service_lk" target="_blank">
+											<span class="service_txt">众筹</span>
+										</a>
+									</li>
+									<li class="service_item ">
+										<a href="https://licai.jd.com/?from=jrscyn_20161" class="service_lk" target="_blank" >
+											<span class="service_txt">理财</span>
+										</a>
+									</li>
+									<li class="service_item ">
+										<a href="https://o.jd.com/market/index.action" class="service_lk" target="_blank">
+											<span class="service_txt">礼品卡</span>
+										</a>
+									</li>
+									<li class="service_item ">
+										<a href="https://baitiao.jd.com/?from=jrscyn_20160" class="service_lk" target="_blank">
+											<span class="service_txt">白条</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="J_tab_content service_pop">
+								<div class="mod_tab_content_item service_pop_item mod_loading" style="display: none;">
+									
+								</div>
+								<div class="mod_tab_content_item service_pop_item" style="display: block;">
+									<div id="squares-jipiao">
+										<ul class="squares-tab clearfix">
+											<li class="current jp-tab">
+												<a href="https://jipiao.jd.com/" clstag="h|keycount|2016|11b01" target="_blank">国内机票</a>
+											</li>
+											<li class="jp-tab">
+												<a href="https://ijipiao.jd.com/" clstag="h|keycount|2016|11b02" target="_blank">国际/港澳台</a>
+											</li>
+											<li class="jp-tab last">
+												<a href="https://sale.jd.com/act/qQZBt4RgVp.html?utm_source=pchome12airplane" clstag="h|keycount|2016|11b03" target="_blank">特惠</a>
+											</li>
+										</ul>
+										<div class="squares-main">
+											<div class="squares-content">
+												<ul class="tab-content clearfix">
+													<li class="jp-content jp-content-gn">
+														<div class="select-type clearfix">
+															<label>
+																<input clstag="h|keycount|2016|11b01a" type="radio" name="flighttype" class="flight-type" checked="checked">
+																<span>单程</span>
+															</label>
+															<label>
+																<input clstag="h|keycount|2016|11b01b" type="radio" name="flighttype" class="flight-type j-back-trip">
+																<span>往返</span>
+															</label>
+														</div>
+														<div class="select-city clearfix">
+															<div class="city-area">
+																<input clstag="h|keycount|2016|11b01c" type="text" class="start-city" value="" placeholder="城市" autocomplete="off" style="color: rgb(170, 170, 170);">
+																<span class="area-title">出发</span>
+															</div>
+															<span class="change-city">&nbsp;</span>
+															<div class="city-area last-city-area">
+																<input clstag="h|keycount|2016|11b01d" type="text" class="end-city" value="" placeholder="城市" autocomplete="off" style="color: rgb(170, 170, 170);">
+																<span class="area-title">到达</span>
+															</div>
+														</div>
+														<div class="select-date clearfix">
+															<div class="date-area">
+																<input clstag="h|keycount|2016|11b01e" type="text" class="start-date" placeholder="出发" readonly="readonly" style="color: rgb(170, 170, 170);">
+																<span class="area-title">日期</span>
+																<input clstag="h|keycount|2016|11b01f" type="text" class="end-date" placeholder="返程" readonly="readonly" style="color: rgb(170, 170, 170);">
+															</div>
+														</div>
+														<div class="search-jp">
+															<a href="javascript:void(0);" id="search-jp-gn" clstag="h|keycount|2016|11b01g" class="search-jp-btn">机票查询</a>
+															<span class="gn-word-ad">
+																<a href="https://c-nfa.jd.com/adclick?keyStr=6PQwtwh0f06syGHwQVvRO7U+heRbHpfqV/P6SzLcVqMNE3oFI1IqndbjV8aRWSxWf0KcMK5uMU5GvQdAnbLpnWkwkiktSmo7hYSi1WRLMHtHWmoByPeXmwN+vPPmAue8mMVMws1XWE7HXXiAugC4EpOg1xJfpfljyV2rBurSJxJAGbQzKrvdmZNoxi1961Nbxkb5s4nO54BIBffQCQL4EkzsqEoDNpyzDgB1a3wKmxNYY5DOzpzpK+ysBKjS5k/T6wyaASGRj0R4xXHpfWcNe5NaT4t0EB7oAYdLfN7m8ZqWvDRVFRzMj9pkpRvN7J2Q&amp;cv=2.0&amp;url=https://jipiao.jd.com/" target="_blank" class="search-tip" clstag="h|keycount|2016|11b01h">当季热门特惠机票 </a>
+															</span>
+														</div>
+													</li>
+													<li class="jp-content jp-content-gj">
+														<div class="select-type clearfix">
+															<label>
+																<input clstag="h|keycount|2016|11b02a" type="radio" name="gjflighttype" class="flight-type" checked="checked">
+																<span>单程</span>
+															</label>
+															<label>
+																<input clstag="h|keycount|2016|11b02b" type="radio" name="gjflighttype" class="flight-type j-back-trip">
+																<span>往返</span>
+															</label>
+														</div>
+														<div class="select-city clearfix">
+															<div class="city-area">
+																<input clstag="h|keycount|2016|11b02c" type="text" class="start-city" placeholder="城市" id="gjdepCity" autocomplete="off" style="color: rgb(170, 170, 170);">
+																<span class="area-title">出发</span>
+															</div>
+															<span class="change-city">&nbsp;</span>
+															<div class="city-area last-city-area">
+																<input clstag="h|keycount|2016|11b02d" type="text" class="end-city" placeholder="城市" id="gjarrCity" autocomplete="off" style="color: rgb(170, 170, 170);">
+																<span class="area-title">到达</span>
+															</div>
+														</div>
+														<div class="select-date clearfix">
+															<div class="date-area">
+																<input clstag="h|keycount|2016|11b02e" type="text" class="start-date" placeholder="出发" readonly="readonly" style="color: rgb(170, 170, 170);">
+																<span class="area-title">日期</span>
+																<input clstag="h|keycount|2016|11b02f" type="text" class="end-date" placeholder="返程" readonly="readonly" style="color: rgb(170, 170, 170);">
+															</div>
+														</div>
+														<div class="search-jp">
+															<a href="javascript:void(0);" id="search-jp-gj" clstag="h|keycount|2016|11b02g" class="search-jp-btn">机票查询</a>
+															<span class="gj-word-ad">
+																<a href="https://c-nfa.jd.com/adclick?keyStr=6PQwtwh0f06syGHwQVvRO7U+heRbHpfqV/P6SzLcVqM4lFZyWJwl3xrHWd+/luiiFyUu1eJQTF+8XjxBoEHJlLBwKCzUUFvc4X27IlcguUJHWmoByPeXmwN+vPPmAue8yjlro2eGsZ42UUU+kIqNY5Og1xJfpfljyV2rBurSJxJAGbQzKrvdmZNoxi1961Nbxkb5s4nO54BIBffQCQL4EkzsqEoDNpyzDgB1a3wKmxNYY5DOzpzpK+ysBKjS5k/T6wyaASGRj0R4xXHpfWcNe5NaT4t0EB7oAYdLfN7m8ZqWvDRVFRzMj9pkpRvN7J2Q&amp;cv=2.0&amp;url=//ijipiao.jd.com/" target="_blank" class="search-tip" clstag="h|keycount|2016|11b02h">国际机票任性搜 </a>
+															</span>
+														</div>
+													</li>
+													<li class="jp-content">
+														<div class="jp-ads clearfix">
+															<span class="ad-left-img">
+																<a href="https://c-nfa.jd.com/adclick?keyStr=6PQwtwh0f06syGHwQVvRO7U+heRbHpfqV/P6SzLcVqPiQdGqBUgi97dKOMeyc+kQiV2Kd2FqWocGk/D66QfcvELRbBEC3gg2hDHbtC8GlPlHWmoByPeXmwN+vPPmAue8cJfQF5O5kB/tFxhADIjjAFFNBzF79eLxyTd7YQUQpokfVCfo2WdaJvnSp0dH6GeBs6flhno0+XH+svVTTh5wz2KnFtB6rhrxWO1MpkcMG5SoRUSOdb56zrttLfl8vNBFcptr0poJNKZrfeMvuWRplv4bRbtDQshzWfMXyqdyQxyNrmP1wRDLNloYOL46zk6YpGgD9f7DD80JI2OBqrgiZA==&amp;cv=2.0&amp;url=https://item.jd.com/20902868185.html#crumb-wrap" class="jp-ad" target="_blank" clstag="h|keycount|2016|11b03a" title="" style="float:left;">
+																	<img src="./京东(JD.COM)-正品低价、品质保障、配送及时、轻松购物！_files/5a3874f3Nec952316.jpg" alt="" width="79" height="119">
+																</a>
+															</span>
+															<span class="ad-right-img">
+																<a href="https://c-nfa.jd.com/adclick?keyStr=6PQwtwh0f06syGHwQVvRO7U+heRbHpfqV/P6SzLcVqPU4K5cs8BD3590R9v5IwVi1URU9d/xMquKm6traMipKyWvf6H+iFH9qRenbdFKc1VHWmoByPeXmwN+vPPmAue88vbCjJwzgisfHGxcwS/sj9a58u32U+FqlBdtZWwiYcQhpatCmwiwZM1m77ivG4KWQod+KYxCPcjDhX1RouGJvWWX8sgBMRRsCf+zfYrDghP7Yf0/1mWhQd/EwOPW33yN6Y76pEUjnWhXnKNVdZJvVXCZyfP4uMqYgQ3v+5kk/jcO2L9Q0Zc72tSD7laS1JfwqCGCSkwWB0UZE/clm1+XfA==&amp;cv=2.0&amp;url=https://sale.jd.com/act/qQZBt4RgVp.html" class="jp-ad" target="_blank" clstag="" title="春游记~" style="float:right;">
+																	<img src="./京东(JD.COM)-正品低价、品质保障、配送及时、轻松购物！_files/5a367f36N97fb1740.jpg" alt="春游记~" width="79" height="119">
+																</a>
+															</span>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="mod_tab_content_item service_pop_item mod_loading" style="display: none;">
+									
+								</div>
+								<div class="mod_tab_content_item service_pop_item mod_loading" style="display: none;">
+									
+								</div>
+								<a class="J_service_pop_close service_pop_close iconfont" href="javascript:;">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="J_fs_act" class="fs_act">
+				</div>
+			</div>
+			<!--大屏部分end-->
+			<!--秒杀及最下面连接-->
+			<div class="floors">
+				<div class="sk" id="J_seckill">
+					<div class="grid_c1 sk_inner">
+						<div class="sk_hd">
+							<a class="sk_hd_lk" href="https://miaosha.jd.com/" target="_blank" clstag="h|keycount|core|seckill|a">
+								<div class="sk_tit">京东秒杀
+								</div>
+								<div class="sk_subtit">FLASH DEALS
+								</div>
+								<i class="sk_ico">
+								
+								</i>
+								<div class="sk_desc">本场将在整点结束<br/><br/>欲购从速，机不可失
+								</div>
+							</a>
+						</div>
+						<div class="sk_bd">
+							<div class="sk_list">
+								<div class="slider sk_list_inner" style="overflow: hidden;">
+									<div class="slider_wrapper" >
+										<div class="slider_item sk_item slider_active" style="float: left;width: 199px">
+											<a class="sk_item_lk" href="https://miaosha.jd.com/#3995878" target="_blank">
+												<div class="sk_item_img">
+													<img src="https://img13.360buyimg.com/n4/s140x140_jfs/t14281/61/824785556/474495/2cb01128/5a3a3de7Nf6b6fe58.jpg!q90.webp">
+												</div>
+												<p class="sk_item_name">三只松鼠 零食特产干果礼盒 碧根果 夏威夷果 坚果大礼包火红A 1493g</p>
+												<div class="sk_item_price">
+													<span class="mod_price sk_item_price_new">
+														<i>￥</i>
+														<span>118.00</span>
+													</span>
+													<span class="mod_price sk_item_price_origin">
+														<i>￥</i>
+														<span>149.00</span>
+													</span>
+												</div>
+											</a>f
+										</div>
+										<div class="slider_item sk_item slider_active" style="float: left;width: 199px;border-left:1px solid rgb(240,243,239);">
+											<a class="sk_item_lk" href="https://miaosha.jd.com/#5464854" target="_blank">
+												<div class="sk_item_img">
+													<img src="https://img20.360buyimg.com/n4/s140x140_jfs/t10567/232/352764897/38119/2dff429/59ccfc58N2c2f89fc.jpg!q90.webp">
+												</div>
+												<p class="sk_item_name">华为（HUAWEI）WS5100 智慧家庭 WiFi 1200M双频智能无线路由器</p>
+												<div class="sk_item_price">
+													<span class="mod_price sk_item_price_new">
+														<i>￥</i>
+														<span>149.00</span>
+													</span>
+													<span class="mod_price sk_item_price_origin">
+														<i>￥</i>
+														<span>159.00</span>
+													</span>
+												</div>
+											</a>
+										</div>
+										<div class="slider_item sk_item slider_active" style="float: left;width: 199px;border-left:1px solid rgb(240,243,239);">
+											<a class="sk_item_lk" href="https://miaosha.jd.com/#1805141" target="_blank">
+												<div class="sk_item_img">
+													<img src="https://img11.360buyimg.com/n4/s140x140_jfs/t12247/324/123395248/293108/ae4c222c/5a03f847N1105bff2.jpg!q90.webp">
+												</div>
+												<p class="sk_item_name">澳大利亚 进口奶粉 德运 （Devondale）调制乳粉（全脂）成人奶粉 1kg 袋装</p>
+												<div class="sk_item_price">
+													<span class="mod_price sk_item_price_new">
+														<i>￥</i>
+														<span>59.00</span>
+													</span>
+													<span class="mod_price sk_item_price_origin">
+														<i>￥</i>
+														<span>114.00</span>
+													</span>
+												</div>
+											</a>
+										</div>
+										<div class="slider_item sk_item slider_active" style="float: left;width: 199px;border-left:1px solid rgb(240,243,239);">
+											<a class="sk_item_lk" href="https://miaosha.jd.com/#3021808" target="_blank">
+												<div class="sk_item_img">
+													<img src="https://img13.360buyimg.com/n4/s140x140_jfs/t13747/26/1730832797/148652/e83c7ff8/5a266ed9Nc0be954c.jpg!q90.webp">
+												</div>
+												<p class="sk_item_name">酷开(coocaa)KX55 55英寸4K超高清 人工智能 液晶网络平板电视 酷开系统WiFi(黑色)</p>
+												<div class="sk_item_price">
+													<span class="mod_price sk_item_price_new">
+														<i>￥</i>
+														<span>2488.00</span>
+													</span>
+													<span class="mod_price sk_item_price_origin">
+														<i>￥</i>
+														<span>2999.00</span>
+													</span>
+												</div>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sk_chn">
+								<div class="slider sk_chn_inner">
+									<div class="slider_wrapper" style="overflow: hidden;">
+										<a class="slider_item sk_chn_lk slider_active" href="https://c-nfa.jd.com/adclick?keyStr=6PQwtwh0f06syGHwQVvRO4Hl3DCf4adHMyWVFctBdNolFcC91vRAFXBVaok/SDZ3H33TeG98SL15hvpPq7Pr9aSqemoJIpYJl/CVVUAhJ3Okbn5trxF7QLG642N+9on3xDAsgCu+qgXFEMoZckExJU/2A20ckSnwm3nWaI9XANIHwT2bxhbsJapveKRBO/KGPg/5lcwJ9ODRALR4zzW6KndBYMCVFxlbZRUKij7Z92358nvVR6ukal9j8UOUAB7XX2eOVm6BWJgL+STwEf7TGxhRUJO1SzbN9ghEGFXB7f90eAcCcxt4/aYpXclWi6Ay4kZYtET9oANOMTk0wDstKw==&cv=2.0&url=//sale.jd.com/act/qcpbEZh7YMfOJB2.html" target="_blank">
+											<div class="sk_chn_img">
+												<img src="./JDimage/5a3cb5abNcecb18c0.jpg!q90!cc_180x260">
+											</div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<div id="J_footer" class="footer">
+					<div class="mod_service">
+						<div class="grid_c1 mod_service_inner">
+							<ul class="mod_service_list">
+								<li class="mod_service_item">
+									<div class="mod_service_unit">
+										<h5 class="mod_service_tit mod_service_duo">多</h5>
+										<p class="mod_service_txt">品类齐全，轻松购物</p>
+									</div>
+								</li>
+								<li class="mod_service_item">
+									<div class="mod_service_unit">
+										<h5 class="mod_service_tit mod_service_kuai">快</h5>
+										<p class="mod_service_txt">多仓直发，极速配送</p>
+									</div>
+								</li>
+								<li class="mod_service_item">
+									<div class="mod_service_unit">
+										<h5 class="mod_service_tit mod_service_hao">好</h5>
+										<p class="mod_service_txt">正品行货，精致服务</p>
+									</div>
+								</li>
+								<li class="mod_service_item">
+									<div class="mod_service_unit">
+										<h5 class="mod_service_tit mod_service_sheng">省</h5>
+										<p class="mod_service_txt">天天低价，畅选无忧</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="mod_help">
+						<div class="grid_c1 mod_help_inner">
+							<div class="mod_help_list">
+								<div class="mod_help_nav">
+									<h5 class="mod_help_nav_tit" style="font-weight: bold;">购物指南</h5>
+									<ul class="mod_help_nav_con">
+										<li>
+											<a href="https://help.jd.com/user/issue/list-29.html" target="_blank">购物流程</a>
+										</li>
+										<li>
+											<a href="https://help.jd.com/user/issue/list-151.html" target="_blank">会员介绍</a>
+										</li>
+										<li>
+											<a href="https://help.jd.com/user/issue/list-297.html" target="_blank">生活旅行</a>
+										</li>
+										<li>
+											<a href="https://help.jd.com/user/issue.html" target="_blank">常见问题</a>
+										</li>
+										<li>
+											<a href="https://help.jd.com/user/issue/list-136.html" target="_blank">大家电</a>
+										</li>
+										<li>
+											<a href="https://help.jd.com/user/index.html" target="_blank">联系客服</a>
+										</li>
+									</ul>
+								</div>
+								<div class="mod_help_nav">
+									<h5 class="mod_help_nav_tit" style="font-weight: bold;">配送方式</h5>
+									<ul class="mod_help_nav_con">
+										<li>
+											<a href="https://help.jd.com/user/issue/list-81-100.html" target="_blank">上门自提</a>
+										</li>
+										<li>
+											<a href="https://help.jd.com/user/issue/list-81.html" target="_blank">211限时达</a>
+										</li>
+										<li>
+											<a href="https://help.jd.com/user/issue/103-983.html" target="_blank">配送服务查询</a>
+										</li>
+										<li>
+											<a href="https://help.jd.com/user/issue/109-188.html" target="_blank">配送费收取标准</a>
+										</li>
+										<li>
+											<a href="https://en.jd.com/chinese.html" target="_blank">海外配送</a>
+										</li>
+									</ul>
+								</div>
+								<div class="mod_help_nav">
+									<h5 class="mod_help_nav_tit" style="font-weight: bold;">支付方式</h5>
+									<ul class="mod_help_nav_con">
+										<li>
+											<a href="https://help.jd.com/user/issue/list-172.html" target="_blank">货到付款</a>
+										</li>
+										<li>
+											<a href="https://help.jd.com/user/issue/list-173.html" target="_blank">在线支付</a>
+										</li>
+										<li>
+											<a href="https://help.jd.com/user/issue/list-176.html" target="_blank">分期付款</a>
+										</li>
+										<li>
+											<a href="https://help.jd.com/user/issue/list-174.html" target="_blank">邮局汇款</a>
+										</li>
+										<li>
+											<a href="https://help.jd.com/user/issue/list-175.html" target="_blank">公司转账</a>
+										</li>
+									</ul>
+								</div>
+								<div class="mod_help_nav">
+									<h5 class="mod_help_nav_tit" style="font-weight: bold;">售后服务</h5>
+									<ul class="mod_help_nav_con">
+										<li>
+											<a href="https://help.jd.com/user/issue/321-981.html" target="_blank">售后政策</a>
+										</li>
+										<li>
+											<a href="https://help.jd.com/user/issue/list-132.html" target="_blank">价格保护</a>
+										</li>
+										<li>
+											<a href="https://help.jd.com/user/issue/130-978.html" target="_blank">退款说明</a>
+										</li>
+										<li>
+											<a href="https://myjd.jd.com/repair/repairs.action" target="_blank">返修/退换货</a>
+										</li>
+										<li>
+											<a href="https://help.jd.com/user/issue/list-50.html" target="_blank">取消订单</a>
+										</li>
+									</ul>
+								</div>
+								<div class="mod_help_nav">
+									<h5 class="mod_help_nav_tit" style="font-weight: bold;">特色服务</h5>
+									<ul class="mod_help_nav_con">
+										<li>
+											<a href="https://help.jd.com/user/issue/list-133.html" target="_blank">夺宝岛</a>
+										</li>
+										<li>
+											<a href="https://help.jd.com/user/issue/list-134.html" target="_blank">DIY装机</a>
+										</li>
+										<li>
+											<a href="https://fuwu.jd.com/" target="_blank">延保服务</a>
+										</li>
+										<li>
+											<a href="https://o.jd.com/market/index.action" target="_blank">京东E卡</a>
+										</li>
+										<li>
+											<a href="https://mobile.jd.com/" target="_blank">京东通信</a>
+										</li>
+										<li>
+											<a href="https://s.jd.com/" target="_blank">京东JD+</a>
+										</li>
+									</ul>
+								</div>
+								<div class="mod_help_cover">
+									<h5 class="mod_help_cover_tit" style="font-weight: bold;">京东自营覆盖区县</h5>
+									<div class="mod_help_cover_con">
+										<p class="mod_help_cover_info">京东已向全国2661个区县提供自营配送服务，支持货到付款、POS机刷卡和售后上门服务。</p>
+										<p class="mod_help_cover_more"><a href="https://help.jd.com/user/issue/103-983.html" target="_blank">查看详情
+											<i class="iconfont">&#xe64a;</i>
+										</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mod_copyright">
+					<div class="grid_c1 mod_copyright_inner">
+						<p class="mod_copyright_links">
+							<a href="https://about.jd.com/" target="_blank">关于我们</a>
+							<span class="mod_copyright_split">|</span>
+							<a href="https://about.jd.com/contact" target="_blank">联系我们</a>
+							<span class="mod_copyright_split">|</span>
+							<a href="https://help.jd.com/user/custom.html" target="_blank">联系客服</a>
+							<span class="mod_copyright_split">|</span>
+							<a href="https://vc.jd.com/cooperation.html" target="_blank">合作招商</a>
+							<span class="mod_copyright_split">|</span>
+							<a href="https://helpcenter.jd.com/venderportal/index.html" target="_blank">商家帮助</a>
+							<span class="mod_copyright_split">|</span>
+							<a href="https://jzt.jd.com/" target="_blank">营销中心</a>
+							<span class="mod_copyright_split">|</span>
+							<a href="https://app.jd.com/" target="_blank">手机京东</a>
+							<span class="mod_copyright_split">|</span>
+							<a href="https://club.jd.com/links.aspx" target="_blank">友情链接</a>
+							<span class="mod_copyright_split">|</span>
+							<a href="https://media.jd.com/" target="_blank">销售联盟</a>
+							<span class="mod_copyright_split">|</span>
+							<a href="https://club.jd.com/" target="_blank">京东社区</a>
+							<span class="mod_copyright_split">|</span>
+							<a href="https://sale.jd.com/act/FTrWPesiDhXt5M6.html" target="_blank">风险监测</a>
+							<span class="mod_copyright_split">|</span>
+							<a href="https://about.jd.com/privacy/" target="_blank">隐私政策</a>
+							<span class="mod_copyright_split">|</span>
+							<a href="https://gongyi.jd.com/" target="_blank">京东公益</a>
+							<span class="mod_copyright_split">|</span>
+							<a href="https://en.jd.com/" target="_blank">English Site</a>
+							<span class="mod_copyright_split">|</span>
+							<a href="https://corporate.jd.com/" target="_blank">Media &amp; IR</a>
+						</p>
+						<div class="mod_copyright_info">
+							<p>
+								<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11000002000088" target="_blank">京公网安备 11000002000088号</a>
+								<span class="mod_copyright_split">|</span>
+								<span>京ICP证070359号</span>
+								<span class="mod_copyright_split">|</span>
+								<a href="https://img14.360buyimg.com/da/jfs/t256/349/769670066/270505/3b03e0bb/53f16c24N7c04d9e9.jpg" target="_blank">互联网药品信息服务资格证编号(京)-经营性-2014-0008</a>
+								<span class="mod_copyright_split">|</span>
+								<span>新出发京零&nbsp;字第大120007号</span>
+							</p>
+							<p>
+								<span>互联网出版许可证编号新出网证(京)字150号</span>
+								<span class="mod_copyright_split">|</span>
+								<a href="https://sale.jd.com/act/pQua7zovWdJfcIn.html" target="_blank">出版物经营许可证</a>
+								<span class="mod_copyright_split">|</span>
+								<a href="https://misc.360buyimg.com/wz/wlwhjyxkz.jpg" target="_blank">网络文化经营许可证京网文[2014]2148-348号</a>
+								<span class="mod_copyright_split">|</span>
+								<span>违法和不良信息举报电话：4006561155</span>
+							</p>
+							<p>
+								<span>Copyright&nbsp;©&nbsp;2004&nbsp;-&nbsp;2017&nbsp;&nbsp;京东JD.com&nbsp;版权所有</span>
+								<span class="mod_copyright_split">|</span>
+								<span>消费者维权热线：4006067733</span>
+								<a href="https://sale.jd.com/act/7Y0Rp81MwQqc.html" target="_blank" class="mod_copyright_license">经营证照</a>
+							</p>
+							<p>
+								<span>京东旗下网站：</span>
+								<a href="https://www.jdpay.com/" target="_blank">京东钱包</a>
+								<span class="mod_copyright_split">|</span>
+								<a href="http://www.jcloud.com/" target="_blank">京东云</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--底部end-->
+		</div>
+		
+	</div>
+</body>
+</html>
